@@ -3,6 +3,7 @@ import Letters from "./Letters";
 import Data from "../assets/Data.json";
 import { nanoid } from "nanoid";
 import Options from "./Options";
+import CountDownTimer from "./CountDown";
 
 const Main = () => {
   const [mode, setMode] = useState(true);
@@ -29,22 +30,21 @@ const Main = () => {
     <Letters key={nanoid()} letter={letter()} />
   ));
   return (
-    <main className="bg-[#b8daf0] overflow-auto">
-      <div className="xs:mx-3.5">
+    <main className="bg-[#b8daf0] overflow-auto text-black">
+      <div className="">
         <Options />
         <div
           className="flex xs:flex-row-reverse md:flex-col h-screen items-center justify-evenly
                     text-center bg-[#b8daf0] pt-[20px]"
         >
-          <div className="">
-            <div className="flex xs:flex-col md:flex-row md:gap-[20px] lg:gap-[40px] elg:gap-[px]">
+          <div className="grid grid-cols-5">
               {randomLetters}
-            </div>
           </div>
+          <CountDownTimer/>
           <button
             onClick={generate}
-            className="border-none rounded-md font-bold text-2xl py-1.5
-              w-[180px] bg-[#1f1cd2] text-white mt-[70px] hover:bg-[#0400ff]
+            className="rounded-md font-bold text-2xl px-10 py-5
+              bg-[#1f1cd2] text-white hover:bg-[#0400ff]
               transition duration-[200ms]"
           >
             GENERATE
