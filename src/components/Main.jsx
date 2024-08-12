@@ -31,7 +31,7 @@ const Main = () => {
   ));
   return (
     <main className="bg-[#b8daf0] overflow-auto text-black">
-      <div className="">
+      <div className="mx-4">
         <Options />
         <div
           className="flex xs:flex-row-reverse md:flex-col h-screen items-center justify-evenly
