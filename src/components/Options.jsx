@@ -1,27 +1,23 @@
 import React from "react";
-import Mode from "./Mode";
 
 const Options = () => {
   return (
     <div
-      className="absolute border-[2.5px] border-blue-400 px-6 py-4 mt-3.5
-                rounded-lg bg-blue-300"
+      className="absolute border-[2.5px] border-blue-400 px-6 py-4 rounded-lg
+      bg-blue-300 mobile:mt-2 mobile:ml-2 xs:mt-3 xs:ml-0 top-0 xs:left-3.5"
     >
-      <h3 className="text-[19px] ml-2.5">Case Type:</h3>
+      <h3 className="text-[16px]">Case Type:</h3>
       <select
-        className="border-[2px] border-blue-400 px-2 py-1 text-[18px] rounded-md
+        className="border-[2px] border-blue-400 px-2 py-1 text-[18px] rounded-full
         outline-none bg-blue-300"
-        name=""
-        id=""
       >
-        <option className="" value="upper-case">
+        <option className="mobile:text-xs xs:text-[18px]" value="upper-case">
           Upper Case
         </option>
-        <option className="" value="lower-case">
+        <option className="mobile:text-xs xs:text-[18px]" value="lower-case">
           Lower Case
         </option>
       </select>
-      <Mode />
     </div>
   );
 };
