@@ -29,14 +29,14 @@ const Main = (props) => {
     <Letters mode={props.mode} key={nanoid()} letter={letter()} />
   ));
   
-  const styles = props.mode ? "#b8daf0" : "#112745";
+  const styles = props.mode ? "bg-[#b8daf0]" : "bg-[#112745]";
 
   return (
     <div
-      className={`grid h-screen text-center items-center justify-center bg-[${styles}]`}
+      className={`grid h-screen text-center items-center justify-center ${styles}`}
     >
       <div
-        className={`grid md:grid-cols-${5} md:gap-[20px] lg:gap-[40px] 2xl:gap-[60px]
+        className={`grid md:grid-cols-5 md:gap-[20px] lg:gap-[40px] 2xl:gap-[60px]
         mobile:-mr-[100px] xs:-mr-[150px] sm:-mr-[200px] md:-mr-0 md:-mt-32`}
       >
         {randomLetters}
