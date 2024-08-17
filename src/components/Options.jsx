@@ -4,7 +4,7 @@ const Options = () => {
   return (
     <div
       className="absolute border-[2.5px] border-blue-400 px-6 py-4 rounded-lg
-      bg-blue-300 mobile:mt-2 mobile:ml-2 xs:mt-3 xs:ml-0 top-0 xs:left-3.5"
+      bg-blue-300 mobile:mt-2 mobile:ml-2 xs:mt-3 xs:ml-0 top-0 xs:left-3.5 text-black"
     >
       <h3 className="text-[16px]">Case Type:</h3>
       <select
