@@ -3,19 +3,18 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
+      mobile: "200px",
+      xs: "450px",
       sm: "640px",
       md: "965px",
       lg: "1024px",
-      elg: "1200px",
+      xl: "1200px",
+      "2xl": "1400px",
     },
     container: {
       center: true,
     },
-    extend: {
-      screens: {
-        xs: "450px",
-      },
-    },
+    extend: {},
   },
   plugins: [
     require('daisyui'),

@@ -2,56 +2,47 @@ import React, { useState } from "react";
 import Letters from "./Letters";
 import Data from "../assets/Data.json";
 import { nanoid } from "nanoid";
-import Options from "./Options";
-import CountDownTimer from "./CountDown";
+import Button from "./Button";
 
-const Main = () => {
-  const [mode, setMode] = useState(true);
+const Main = (props) => {
+  const letterGridLength = () => {
+    const grid = [];
+    for (let len = 0; len < 5; len++) {
+      grid.push(len);
+    }
+    return grid;
+  };
+
   const letter = () => {
     const max = Data.length;
     const lett = Math.floor(Math.random() * (max - 0));
     return `${Data[lett]}`;
   };
 
-  const letterGridLength = () => {
-    const aa = [];
-    for (let i = 0; i < 5; i++) {
-      aa.push(i);
-    }
-    return aa;
-  };
   const [letterGrid, setLetterGrid] = useState(letterGridLength());
 
-  const generate = () => {
+  const generateLetters = () => {
     setLetterGrid(letterGridLength());
   };
 
   const randomLetters = letterGrid.map((lg) => (
-    <Letters key={nanoid()} letter={letter()} />
+    <Letters mode={props.mode} key={nanoid()} letter={letter()} />
   ));
+  
+  const styles = props.mode ? "bg-[#b8daf0]" : "bg-[#112745]";
+
   return (
-    <main className="bg-[#b8daf0] overflow-auto text-black">
-      <div className="mx-4">
-        <Options />
-        <div
-          className="flex xs:flex-row-reverse md:flex-col h-screen items-center justify-evenly
-                    text-center bg-[#b8daf0] pt-[20px]"
-        >
-          <div className="grid grid-cols-5">
-              {randomLetters}
-          </div>
-          <CountDownTimer/>
-          <button
-            onClick={generate}
-            className="rounded-md font-bold text-2xl px-10 py-5
-              bg-[#1f1cd2] text-white hover:bg-[#0400ff]
-              transition duration-[200ms]"
-          >
-            GENERATE
-          </button>
-        </div>
+    <div
+      className={`grid h-screen text-center items-center justify-center ${styles}`}
+    >
+      <div
+        className={`grid md:grid-cols-5 md:gap-[20px] lg:gap-[40px] 2xl:gap-[60px]
+        mobile:-mr-[100px] xs:-mr-[150px] sm:-mr-[200px] md:-mr-0 md:-mt-32`}
+      >
+        {randomLetters}
       </div>
-    </main>
+      <Button mode={props.mode} generateLetters={generateLetters} />
+    </div>
   );
 };
 export default Main;
