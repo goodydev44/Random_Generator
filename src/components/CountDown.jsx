@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const CountDownTimer = () => {
   const [seconds, setSeconds] = useState(10);
 
-  const [min, setMin] = useState(2);
+  const [min, setMin] = useState(1);
 
   useEffect(() => {
     if (seconds > 0) {
@@ -19,7 +19,11 @@ const CountDownTimer = () => {
   }, [seconds, min]);
 
   return (
-    <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+    <div
+      className={`absolute grid grid-flow-col gap-5 text-center auto-cols-max text-black font-extrabold
+                    mobile:left-[10px] xs:left-[65px] sm:left-[155px] md:bottom-[5%] md:left-[46.7%]
+                    lg:left-[46%] xl:left-[46%] mobile:bottom-[38%] xs:bottom-[30%]`}
+    >
       <div className="flex flex-col">
         <span className="countdown font-mono text-5xl">
           <span style={{ "--value": min }}></span>
