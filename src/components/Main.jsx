@@ -22,9 +22,11 @@ const Main = (props) => {
   };
 
   const [letterGrid, setLetterGrid] = useState(letterGridLength());
+  const [startTimer, setStartTimer] = useState(false);
 
   const generateLetters = () => {
     setLetterGrid(letterGridLength());
+    setStartTimer(true); // Start the timer when the button is clicked
   };
 
   const randomLetters = letterGrid.map((lg) => (
@@ -42,9 +44,10 @@ const Main = (props) => {
         {randomLetters}
       </div>
       <Button mode={props.UI_mode} generate={generateLetters} />
-      <CountDownTimer />
+      <CountDownTimer start={startTimer} />
       {/* <Mode mode={props.UI_mode} toggleMode={props.toggle} /> */}
     </div>
   );
 };
+
 export default Main;

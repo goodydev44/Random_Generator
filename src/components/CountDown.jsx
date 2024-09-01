@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
 
-const CountDownTimer = () => {
-  const [seconds, setSeconds] = useState(10);
-
+const CountDownTimer = ({ start }) => {
+  const [seconds, setSeconds] = useState(60);
   const [min, setMin] = useState(1);
 
   useEffect(() => {
-    if (seconds > 0) {
-      const timerId = setInterval(() => {
-        setSeconds((prevSec) => prevSec - 1);
-      }, [1000]);
+    if (start) {
+      if (seconds > 0) {
+        const timerId = setInterval(() => {
+          setSeconds((prevSec) => prevSec - 1);
+        }, [1000]);
 
-      return () => clearInterval(timerId); // Cleanup the interval on component unmount
-    } else if (min > 0) {
-      setMin((prevMin) => prevMin - 1);
-      setSeconds(9);
+        return () => clearInterval(timerId); // Cleanup the interval on component unmount
+      } else if (min > 0) {
+        setMin((prevMin) => prevMin - 1);
+        setSeconds(59);
+      }
     }
-  }, [seconds, min]);
+  }, [start, seconds, min]);
 
   return (
     <div
