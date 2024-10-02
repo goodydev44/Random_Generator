@@ -36,15 +36,25 @@ const Main = (props) => {
   const styles = props.UI_mode ? "bg-[#b8daf0]" : "bg-[#112745]";
 
   return (
-    <div className={`grid h-screen text-center items-center ${styles}`}>
+    <div
+      className={`grid mobile:grid-cols-2 md:grid-cols-1 mobile:gap-3 md:gap-28l h-screen
+    mobile:justify-evenly md:justify-center items-center mobile:px-5 xs:px-10 sm:px-20 md:px-2
+    xl:px-5 md:py-16 ${styles}`}
+    >
       <div
-        className={`grid md:grid-cols-5 md:gap-[20px] lg:gap-[40px] 2xl:gap-[60px]
-        mobile:ml-[100px] xs:ml-[150px] sm:ml-[200px] md:mx-auto md:mb-32 text-center`}
+        className={`grid md:grid-cols-5 md:gap-[20px] lg:gap-[40px] 2xl:gap-[50pxx]`}
       >
         {randomLetters}
       </div>
-      <Button mode={props.UI_mode} generate={generateLetters} />
-      <CountDownTimer start={startTimer} />
+
+      <div className="grid gap-6 justify-center bg-blue-3000 p-2 mobile:mt-[100px] md:mt-0">
+        <Button mode={props.UI_mode} generate={generateLetters} />
+        <CountDownTimer start={startTimer} />
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
       {/* <Mode mode={props.UI_mode} toggleMode={props.toggle} /> */}
     </div>
   );
