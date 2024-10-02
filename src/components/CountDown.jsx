@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-const CountDownTimer = ({ start }) => {
+const CountDownTimer = (props) => {
   const [seconds, setSeconds] = useState(60);
   const [min, setMin] = useState(1);
 
   useEffect(() => {
-    if (start) {
+    if (props.start) {
       if (seconds > 0) {
         const timerId = setInterval(() => {
           setSeconds((prevSec) => prevSec - 1);
@@ -17,13 +17,11 @@ const CountDownTimer = ({ start }) => {
         setSeconds(59);
       }
     }
-  }, [start, seconds, min]);
+  }, [props.start, seconds, min]);
 
   return (
     <div
-      className={`absolute grid grid-flow-col gap-5 text-center auto-cols-max text-black font-extrabold
-                    mobile:left-[10px] xs:left-[65px] sm:left-[155px] md:bottom-[5%] md:left-[46.7%]
-                    lg:left-[46%] xl:left-[46%] mobile:bottom-[38%] xs:bottom-[30%]`}
+      className={`grid grid-flow-col gap-5 auto-cols-max text-center justify-center text-black font-extrabold`}
     >
       <div className="flex flex-col">
         <span className="countdown font-mono text-5xl">
