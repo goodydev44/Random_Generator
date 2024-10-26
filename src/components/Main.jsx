@@ -77,7 +77,7 @@ const Main = (props) => {
       <div className="grid gap-4 justify-center bg-blue-3000 p-2 mobile:mt-[100px] md:mt-0 text-black">
         <Button mode={isMode} generate={generateLetters} />
         <CountDownTimer start={startTimer} />
-        {/* <TimerControls play={isPlaying} togglePlay={togglePlay} /> */}
+        <TimerControls play={isPlaying} togglePlay={togglePlay} />
       </div>
       {/* <Mode mode={isMode} toggleMode={toggleMode} /> */}
     </div>
