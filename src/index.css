@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .iconStyle1 {
+        @apply cursor-pointer text-[2rem] hover:bg-slate-400 transition duration-200 rounded-full
+    }
+}
